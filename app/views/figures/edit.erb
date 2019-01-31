@@ -1,0 +1,22 @@
+<h1>New Figure:</h1>
+<form action="/figures" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <label for="name">Figure Name:</label>
+  <input id="figure_name" type="text" name="figure[name]" value="<%=@figure.name%>">
+  <br>
+  <br>
+
+  <h1>Titles:</h1>
+  <% Title.all.each do |title| %>
+     <input type="checkbox" name="title[name][]" id="<%= title.id %>" value="<%= title.id %>"> <%='checked' if @song.genres.include?(genre) %>><%=genre.name%></input>
+  <% end %>
+  <br>
+  <br>
+
+<h1>Landmarks</h1>
+  <% Landmark.all.each do |landmark| %>
+     <input type="checkbox" name="landmark[name][]" id="<%= landmark.id %>" value="<%= landmark.id %>"> <%=landmark.name%> </input>
+  <% end %>
+  <input type="submit" name="submit">
+</form>
